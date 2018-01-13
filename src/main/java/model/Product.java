@@ -9,6 +9,7 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 private int pid;
+	//This is a product name
 private String pname;
 private int pcost;
 public int getPid() {
