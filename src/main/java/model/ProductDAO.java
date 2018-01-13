@@ -29,14 +29,13 @@ public class ProductDAO {
 		}
 		return b;
 	}
-	public void getProducts()
+	public List<Product> getProducts()
 	{
 		Query query = sess.createQuery("from Product");
 		List<Product> lp = (List<Product>)query.getResultList();
-		for(Product p: lp)
-		{
-			System.out.println(p.getPname()+" "+p.getPcost());
-		}
+		
+		return lp;
+		
 	}
 	public boolean updateProduct(Product p)
 	{

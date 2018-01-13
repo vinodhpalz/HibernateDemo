@@ -42,6 +42,7 @@ public class ProductController extends HttpServlet {
 			p.setPcost(pcost);
 			ProductDAO pd = new ProductDAO();
 			boolean b = pd.insertProduct(p);
+			request.setAttribute("products", pd.getProducts());
 			pd.getProducts();
 			if(b)
 			{
