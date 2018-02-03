@@ -1,4 +1,4 @@
-<%@ page import="java.util.List, model.Product" language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -8,13 +8,5 @@
 </head>
 <body>
 <h1>Successfully Inserted</h1>
-<%
-	List<Product> l = (List<Product>)request.getAttribute("products");
-	for(Product p: l)
-	{
-		out.println(p.getPname());
-	}
-
-%>
 </body>
 </html>

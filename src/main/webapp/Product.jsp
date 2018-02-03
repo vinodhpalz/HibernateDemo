@@ -11,6 +11,10 @@
 ProductId:<input type="text" name="t1"/>
 ProductName:<input type="text" name="t2"/>
 ProductCost:<input type="text" name="t3"/>
+Product2Id:<input type="text" name="p1"/>
+Product2Name:<input type="text" name="p2"/>
+Product2Cost:<input type="text" name="p3"/>
+SupplierName:<input type="text" name="t4"/>
 <input type="submit" value="Product Insert"/>
 
 </form>

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Product;
 import model.ProductDAO;
+import model.Supplier;
 
 /**
  * Servlet implementation class ProductController
@@ -33,16 +34,33 @@ public class ProductController extends HttpServlet {
 		int pid = Integer.parseInt(request.getParameter("t1"));
 		String pname = request.getParameter("t2");
 		int pcost = Integer.parseInt(request.getParameter("t3"));
-		
+		String sname = request.getParameter("t4");
+		int p2id = Integer.parseInt(request.getParameter("p1"));
+		String p2name = request.getParameter("p2");
+		int p2cost = Integer.parseInt(request.getParameter("p3"));
 		if(pid != 0)
 		{
 			Product p = new Product();
 			p.setPid(pid);
 			p.setPname(pname);
 			p.setPcost(pcost);
+			
+			Product p1 = new Product();
+			p1.setPid(p2id);
+			p1.setPname(p2name);
+			p1.setPcost(p2cost);
+			
+			Supplier s = new Supplier();
+			s.setSupplierName(sname);
+			s.getProduct().add(p);
+			s.getProduct().add(p1);
+			
+			p.setSuppier(s);
+			p1.setSuppier(s);
+			
 			ProductDAO pd = new ProductDAO();
-			boolean b = pd.insertProduct(p);
-			request.setAttribute("products", pd.getProducts());
+			boolean b = pd.insertProduct(p,p1,s);
+			//request.setAttribute("products", pd.getProducts());
 			pd.getProducts();
 			if(b)
 			{

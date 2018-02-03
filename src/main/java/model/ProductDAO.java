@@ -10,7 +10,7 @@ public class ProductDAO {
 	private Transaction trans;
 	private Session sess;
 	private boolean b = true;
-	public boolean insertProduct(Product p)
+	public boolean insertProduct(Product p,Product p1, Supplier s)
 	{
 		try
 		{
@@ -20,6 +20,8 @@ public class ProductDAO {
 		// Product p1 =(Product)sess.get(Product.class, p.getPid());
 		//sess.delete(p1);
 		sess.save(p);
+		sess.save(p1);
+		sess.save(s);
 		trans.commit();
 		}catch(Exception ex)
 		{
