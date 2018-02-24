@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Successfully Inserted</h1>
+<h1>Successfully Inserted ${product1.getPname()}</h1>
 </body>
 </html>
