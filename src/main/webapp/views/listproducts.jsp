@@ -9,45 +9,50 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"></link>
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
   <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script src="//https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
   <script type="text/javascript">
-  
-  $(document).ready(function(){
-	  $(document).ready(function() {
-		  $.ajax({
-			  url: 'http://10.1.193.120:8080/SpringDemo/students',
-			  method: 'post',
-			  dataType: 'json',
-			  success: function (data) {
-				  $('#myTable').dataTable({
-					  data: data,
-					  columns: [
-						  { 'data': 'country'},
-						  { 'data': 'studName'},
-					  ]
-				  });
-			  }
-			  
-		  });
+  $(document).ready(function() {
+	  $.ajax({
+		  url: '/HibernateDemo/productss',
+		  method: 'get',
+		  dataType: 'json',
+		  success: function (data) {
+			  $('#myTable').dataTable({
+				  data: data,
+				  columns: [
+					  { 'data': 'pid' },
+					  { 'data': 'pname'},
+					  { 'data': 'pcost'},
+				  ]
+			  });
+		  }
 		  
 	  });
+	  
+  });
   
   </script>
 <title>Insert title here</title>
 </head>
 <body>
-<div style="width:600px; border:1px solid black; padding:3px;">
-<table id="myTable">
+<table>
+<c:forEach items="${arl}" var="product">
+<tr>
+<td> ${product.getPname()}</td>
+<td> ${product.getPcost()}</td>
+</tr>
+</c:forEach>
+</table>
+<table id="myTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
 <thead>
 <tr>
-<th>Country</th>
-<th>StudentName</th>
+	<th>pid</th>	
+	<th>pname</th>
+	<th>pcost</th>
 </tr>
 </thead>
-
 </table>
-
-</div>
 </body>
 </html>

@@ -11,19 +11,18 @@
 </head>
 <body>
 <div class="container">
-<a href = "/HibernateDemo/productsss">List Products</a>
-<a href = "/HibernateDemo/privatePage">User Page</a>
-<form action="/HibernateDemo/success" method="post">
+<form action="${pageContext.request.contextPath}/login" method="post">
   <div class="form-group">
-    <label for="pname">Product Name:</label>
-    <input type="text" class="form-control" id="pname" name="pname" placeholder="Enter Product Name">
+    <label for="username">User Name:</label>
+    <input type="text" class="form-control" id="username" name="username" placeholder="Enter User Name">
   </div>
   <div class="form-group">
-    <label for="pcost">Product Cost:</label>
-    <input type="text" class="form-control" id="pcost" name="pcost" placeholder="Enter the cost of the product">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="Enter the password">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
 </div>
+
 </body>
 </html>
